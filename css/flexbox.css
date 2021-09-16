@@ -1,0 +1,141 @@
+.cabecalhoPrincipal .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cabecalhoPrincipal-nav {
+    display: flex;
+}
+
+.rodapePrincipal-patrocinadores .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodapePrincipal-patrocinadores-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+    margin-right: 5%;
+}
+
+.rodapePrincipal-contatoForm {
+    width: 25%;
+}
+
+.rodapePrincipal-contatoForm-fieldset {
+    display: flex;
+}
+
+.rodapePrincipal-navMap-list {
+    display: flex;
+    flex-flow: column wrap; /* dire��o de coluna + quebra de linha
+    Essa � uma forma simples de escrever as 2 linhas:
+    flex-direction: column;  (Geralmente o default � ROW, em linha)
+    flex-wrap: wrap; (quebrando a coluna) */
+    height: 250px;
+}
+
+.conteudoPrincipal-cursos {
+    display: flex;
+    flex-wrap: wrap; /*Quenra p/ proxima linha em caso de falta de espa�o*/
+}
+
+.conteudoPrincipal-cursos-link {
+    width: 23%;
+    margin: 1%;
+}
+
+.conteudoPrincipal-cursos-link:nth-child(4n) { /*Tirando a margem direita dos elementos multiplos de 4*/
+    margin-right: 0;
+}
+
+.conteudoPrincipal-cursos-link:nth-child(4n+1) { /*Tirando a margem esquerda dos elementos multiplos de 4+1*/
+    margin-left: 0;
+}
+
+.videoSobre .container {
+    display: flex;
+}
+
+.videoSobre-sobre {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2; /*Ocupar� o resto do espa�o*/
+}
+
+.videoSobre-sobre-list {
+    flex-grow: 1;
+}
+
+.videoSobre-video {
+    flex-grow: 1;
+    flex-shrink: 2; /*Conforme diminuir a tela, o v�deo diminuir� 2x mais*/
+}
+
+/* Parte Mobile: vizualizando em 320 x 492;
+@media � mediaquery, encapsula o que precisa ser lido em mobile,
+definindo max-width at� 768px ler� essa parte do c�digo,
+do contr�rio ler� a parte de cima do c�digo � ser� definido como desktop */
+
+@media(max-width: 768px) {
+    .cabecalhoPrincipal-nav {
+        flex-direction: column;
+    }
+
+    .cabecalhoPrincipal .container {
+        flex-direction: column;
+        align-items: initial;
+        text-align: center;
+    }
+
+    .conteudoPrincipal-cursos {
+        flex-direction: column;
+    }
+
+    .conteudoPrincipal-cursos-link {
+        width: 100%;
+    }
+
+    .rodapePrincipal-navMap-list {
+        height: auto; /*Definido p/ se ajustar � tela*/
+    }
+
+    .rodapePrincipal-patrocinadores .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rodapePrincipal-patrocinadores-list {
+        margin: 0;
+        width: 100%;
+    }
+
+    .rodapePrincipal-contatoForm {
+        width: 100%;
+    }
+
+    .rodapePrincipal-contatoForm-fieldset {
+        justify-content: center;
+    }
+
+    /*Trocando a ordem da lista sem mexer no HTML,
+    p/ apenas dentro do mobile ter essa ordem.
+    Come�a em 0, se eu quero que o link do app seja sempre o primeiro,
+    ou seja, venha sempre antes de todo mundo, ele vem antes do 0,
+    logo, utiliza-se -1.*/
+    .cabecalhoPrincipal-nav-link-app {
+        order: -1;
+    }
+
+    .videoSobre .container {
+        flex-direction: column;
+    }
+
+    .videoSobre-video {
+        margin: 0 auto;
+    }
+}
